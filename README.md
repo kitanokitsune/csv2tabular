@@ -1,4 +1,4 @@
-# CSV to Tabular form
+# Display CSV in Tabular Form
 
 ## 概要
 **csv2tabular.sh** は標準入力からCSV形式のデータを受け取り、標準出力に表形式で出力するシェルスクリプトです。UTF-8に対応しています。
