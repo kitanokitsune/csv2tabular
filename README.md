@@ -160,7 +160,6 @@ $ cat sample.csv | csv2tabular.sh -t "a,b,c" -p0 -i10 "g h"
 
 
 ## License
-csv2tabular.sh  1.0.0  
 Copyright (C) 2019 kitanokitsune
 
 This program is free software; you can redistribute it and/or modify
