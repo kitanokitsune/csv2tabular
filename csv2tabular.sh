@@ -1,10 +1,16 @@
 #! /bin/bash
 
 # This script requires GNU Awk 4.0 or later.
+#
+# version 1.1.0: fix the following warning for gawk 5.0
+#   gawk: cmd. line:139: warning: regexp escape sequence `\"' is not a known regexp operator
+#   gawk: cmd. line:153: warning: regexp escape sequence `\"' is not a known regexp operator
+#
+# version 1.0.1: first release
 
 VERSION_AND_LICENSE="
-csv2tabular.sh  1.0.1
-Copyright (C) 2019 kitanokitsune
+csv2tabular.sh  1.1.0
+Copyright (C) 2020 kitanokitsune
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -560,7 +566,7 @@ __colwid=( $(
       gsub(/[[:cntrl:]]+/,"",col);
       gsub(/^ +/,"",col);
       gsub(/ +$/,"",col);
-      col=gensub(/^\"([^\n]*)\"$/,"\\1","g",col);
+      col=gensub(/^"([^\n]*)"$/,"\\1","g",col);
       n=strwidth(col)+padL+padR;
       if ( length(collen[i]) < 1 ) collen[i]=n;
       else if ( collen[i] < n ) collen[i]=n;
@@ -627,7 +633,7 @@ fi
         gsub(/[[:cntrl:]]+/,"",col);
         gsub(/^ +/,"",col);
         gsub(/ +$/,"",col);
-        col=gensub(/^\"([^\n]*)\"$/,"\\1","g",col);
+        col=gensub(/^"([^\n]*)"$/,"\\1","g",col);
         n=strwidth(col);
         if (length(align[i]) == 0) {
           nl=padL;
